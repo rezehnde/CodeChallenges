@@ -29,16 +29,18 @@ namespace CodeChallenges
             return false;
         }
 
-        static int sockMerchant(int n, int[] ar)
-        {
-            int pairs = 0;
-            int[] colorsCount = ar.GroupBy(color => color).Select(color => color.Count()).ToArray();
-            foreach (int count in colorsCount)
-            {
-                pairs += ((count - (count % 2)) / 2);
-            }
-            return pairs;
-        }
+static int sockMerchant(int n, int[] ar)
+{
+    int pairs = 0;
+    int[] colorsCount = ar.GroupBy(color => color).
+                Select(color => color.Count()).
+                ToArray();
+    foreach (int count in colorsCount)
+    {
+        pairs += ((count - (count % 2)) / 2);
+    }
+    return pairs;
+}
 
         static int[] generateNumbersArray(int size)
         {
