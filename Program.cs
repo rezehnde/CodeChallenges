@@ -8,9 +8,26 @@ namespace CodeChallenges
     {
         static void Main(string[] args)
         {
-            int pairs = sockMerchant(9, new int[]{10, 20, 20, 10, 10, 30, 50});
-            Console.WriteLine("We have found {0} pairs of socks.", pairs);
+            int result = countingValleys(8, "UDDDUDUUDDDDDDUUDUUUDUUUUD");
+            Console.WriteLine("We have found {0} valleys.", result);
             Console.ReadLine();
+        }
+
+        static int countingValleys(int n, string s)
+        {
+            int altitude = 0;
+            int valleys = 0;
+            Array steps = s.ToArray();
+            foreach (Char step in steps)
+            {
+                if (step == 'D') altitude--;
+                if (step == 'U')
+                {
+                    altitude++;
+                    if (altitude == 0) valleys++;
+                }
+            }
+            return valleys;
         }
 
         static bool searchForMyNumber(int number, HashSet<int> databaseSet)
@@ -29,18 +46,18 @@ namespace CodeChallenges
             return false;
         }
 
-static int sockMerchant(int n, int[] ar)
-{
-    int pairs = 0;
-    int[] colorsCount = ar.GroupBy(color => color).
-                Select(color => color.Count()).
-                ToArray();
-    foreach (int count in colorsCount)
-    {
-        pairs += ((count - (count % 2)) / 2);
-    }
-    return pairs;
-}
+        static int sockMerchant(int n, int[] ar)
+        {
+            int pairs = 0;
+            int[] colorsCount = ar.GroupBy(color => color).
+                        Select(color => color.Count()).
+                        ToArray();
+            foreach (int count in colorsCount)
+            {
+                pairs += ((count - (count % 2)) / 2);
+            }
+            return pairs;
+        }
 
         static int[] generateNumbersArray(int size)
         {
