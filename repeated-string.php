@@ -18,5 +18,3 @@ function repeatedString($s, $n) {
     // occurrencies of 'a' on the entire repeated string of $s with a length of $n
     return ($a_occurrences_in_s * $s_occurrences_qty) + $a_occurrences_in_s_left;
 }
-// 16481469408
-echo repeatedString('epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq', 549382313570);
